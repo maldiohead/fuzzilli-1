@@ -58,7 +58,13 @@ let v8Profile = Profile(
     disabledCodeGenerators: [],
     
     additionalBuiltins: [
-        "gc"                : .function([] => .undefined),
+        "gc"                                            : .function([] => .undefined),
+        "PrepareFunctionForOptimization"                : .function([.function()] => .undefined),
+        "OptimizeFunctionOnNextCall"                    : .function([.function()] => .undefined),
+        "NeverOptimizeFunction"                         : .function([.function()] => .undefined),
+        "DeoptimizeFunction"                            : .function([.function()] => .undefined),
+        "DeoptimizeNow"                                 : .function([] => .undefined),
+        "OptimizeOsr"                                   : .function([] => .undefined),
     ]
 )
 
