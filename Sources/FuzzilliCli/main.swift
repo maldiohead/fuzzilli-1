@@ -137,7 +137,7 @@ guard validEngines.contains(engineName) else {
 
 let validCorpii = ["basic", "markov"]
 guard validCorpii.contains(corpusName) else {
-    print("--corpus must be one of \(corpusName)")
+    print("--corpus must be one of \(validCorpii)")
     exit(-1)
 }
 
@@ -280,9 +280,6 @@ func makeFuzzer(for profile: Profile, with configuration: Configuration) -> Fuzz
 
         programTemplates.append(template, withWeight: weight)
     }
-
-    // The evaluator to score produced samples.
-    let evaluator = ProgramCoverageEvaluator(runner: runner)
 
     // The environment containing available builtins, property names, and method names.
     let environment = JavaScriptEnvironment(additionalBuiltins: profile.additionalBuiltins, additionalObjectGroups: [])
